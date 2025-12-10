@@ -3,7 +3,7 @@ class Solution {
         String str=Integer.toString(x);
     
         char[] charArray =str.toCharArray();
-        // String str=Integer.toString(x);
+        
         int low=0;
         int high=str.length()-1;
         
