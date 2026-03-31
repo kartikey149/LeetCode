@@ -5,18 +5,13 @@ class Solution {
         HashMap<Integer,Integer> map=new HashMap<>();
         map.put(n,0);
         while(sum!=1){
-            
-            while(num>0){
-                int rem=num%10;
-                sum+=rem*rem;
-                num/=10;
-                System.out.println("rem"+rem);
-            }
+            num=get_no(num,sum);
+            sum=get_no(num,sum);
             if(sum==1){
                 return true;
             }
             
-            num=sum;
+            // num=sum;
             System.out.println(sum+" "+num);
 
             if(map.containsKey(sum)){
@@ -26,5 +21,14 @@ class Solution {
             sum=0;
         }
         return true;
+    }
+    public static int get_no(int n ,int sum){
+        int num=n;
+        while(num>0){
+            int rem=num%10;
+            sum+=rem*rem;
+            num/=10;
+        }
+        return sum;
     }
 }
