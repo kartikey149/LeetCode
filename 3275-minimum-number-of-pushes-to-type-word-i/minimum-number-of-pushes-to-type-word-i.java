@@ -1,24 +1,24 @@
 class Solution {
     public int minimumPushes(String word) {
-        HashMap<Character,Integer> map=new HashMap<>();
-        for(char c:word.toCharArray()){
-            if(map.size()<8){
-                map.put(c,1);
+        
+        int ans=0;
+        // int n=word.length();
+        
+        for(int i=0;i<word.length();i++){
+            // System.out.println(map.get(c));
+            if(i<=7){
+                ans+=1;
             }
-            else if(map.size()>=8 && map.size()<16){
-                map.put(c,2);
+            else if(i>7 && i<=15){
+                ans+=2;
             }
-            else if(map.size()>=16 && map.size()<24){
-                map.put(c,3);
+            else if(i>15 && i<=23){
+                ans+=3;
             }
             else{
-                map.put(c,4);
+                ans+=4;
             }
-        }
-        int ans=0;
-        for(char c:word.toCharArray()){
-            System.out.println(map.get(c));
-            ans+=map.get(c);
+            // ans+=map.get(c);
         }
         return ans;
     }
