@@ -15,13 +15,13 @@ class Solution {
                     j++;
                 }
                 // j++;
-                i++;
+                
                 
 
             }
-            else{
+            
                 i++;
-            }
+            
         }
         ans=Math.max(ans,i-j);
         return ans;
