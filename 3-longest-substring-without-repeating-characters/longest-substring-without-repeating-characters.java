@@ -33,18 +33,38 @@ class Solution {
         //     ans=Math.max(ans,map.size());
         // }
         // return ans;
+        // HashMap<Character,Integer> map=new HashMap<>();
+        // int ans=0,l=0;
+        // for(int i=0;i<s.length();i++){
+        //     char c=s.charAt(i);
+        //     if(map.containsKey(c) && map.get(c)>=l){
+        //         l=map.get(c)+1;
+        //         map.put(c,i);
+        //     }
+        //     map.put(c,i);
+        //     ans=Math.max(i-l+1,ans);
+        // }
+        // return ans;
         HashMap<Character,Integer> map=new HashMap<>();
-        int ans=0,l=0;
-        for(int i=0;i<s.length();i++){
+        int left=0;
+        int i=0,ans=0;
+        while(i<s.length()){
             char c=s.charAt(i);
-            if(map.containsKey(c) && map.get(c)>=l){
-                l=map.get(c)+1;
-                map.put(c,i);
+
+            map.put(c,map.getOrDefault(c,0)+1);
+            while(map.get(c)>1){
+                map.put(s.charAt(left),map.getOrDefault(s.charAt(left),0)-1);
+                left++;
             }
-            map.put(c,i);
-            ans=Math.max(i-l+1,ans);
+            ans=Math.max(i-left+1,ans);
+            i++;
         }
         return ans;
+
+
+
+    
+
         
     }
 }
