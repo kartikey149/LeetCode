@@ -1,9 +1,6 @@
 class Solution {
     public int numRabbits(int[] answers) {
-        Map<Integer,Integer> s=new HashMap<>();
-        for(int i:answers){
-            s.put(i,s.getOrDefault(i,0)+1);
-        }
+       
         int ans=0;
 
         Arrays.sort(answers);
