@@ -14,8 +14,7 @@ class Solution {
         // if(head==null && head.next==null){
         //     return head;
         // }
-        
-        ListNode curr=head;
+         ListNode curr=head;
 
         int len=length(head);
         if (n == len) {
@@ -24,18 +23,13 @@ class Solution {
         for(int i=0;i<len-n-1;i++){
             curr=curr.next;
         }
-        if(curr.next!=null){
+        // if(curr.next!=null){
 
         ListNode curr2=curr.next.next;
         curr.next=curr2;
-        }
-
-
-
-
-      
-       
-       return head;
+        // }
+        
+        return head;
        
     }
     // private ListNode reverse(ListNode head){
