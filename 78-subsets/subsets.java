@@ -1,20 +1,20 @@
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> ls2=new ArrayList<>();
-        count(nums,0,new ArrayList<>(),ls2);
-        return ls2;
+       List<List<Integer>> ans=new ArrayList<>();
+       generate(nums,ans,new ArrayList<>(),0);
+       return ans;
 
 
     }
-    static void count(int[] nums,int i,List<Integer> ls,List<List<Integer>> ls2){
+    static void generate(int[] nums,List<List<Integer>> ans,List<Integer> ls,int i){
         if(i==nums.length){
-            ls2.add(new ArrayList<>(ls));
+            ans.add(new ArrayList<>(ls));
             return;
         }
-
         ls.add(nums[i]);
-        count(nums,i+1,ls,ls2);
-        ls.removeLast();
-        count(nums,i+1,ls,ls2);
+        generate(nums,ans,ls,i+1);
+        ls.remove(ls.size()-1);
+        generate(nums,ans,ls,i+1);
     }
+    
 }
