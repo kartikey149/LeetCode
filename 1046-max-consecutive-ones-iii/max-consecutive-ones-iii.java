@@ -32,20 +32,21 @@ class Solution {
         // return ans;
 
 
-        int left=0;
         int ans=0;
-        int cz=0;
+        int countz=0;
+        int j=0;
+
         for(int i=0;i<nums.length;i++){
             if(nums[i]==0){
-                cz++;
+                countz++;
             }
-            while(cz>k){
-                if(nums[left]==0){
-                    cz--;
+            while(countz>k){
+                if(nums[j]==0){
+                    countz--;
                 }
-                left++;
+                j++;
             }
-            ans=Math.max(ans,i-left+1);
+            ans=Math.max(i-j+1,ans);
         }
         return ans;
     }
