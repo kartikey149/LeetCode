@@ -15,29 +15,21 @@
  */
 class Solution {
     public boolean hasPathSum(TreeNode root, int targetSum) {
-        if(root==null) return false;
-
-        return check(root,targetSum);
+      return sum(root,targetSum,0);
+        
     }
-    static boolean check(TreeNode root,int target){
-       
-        
+    static boolean sum(TreeNode root,int target,int sum){
         if(root==null) return false;
+        sum+=root.val;
+        // if(sum>target) return false;
+        if(root.left==null && root.right==null){
+            return sum==target;
+        }
         
-      
-            if(root.left==null && root.right==null){
-                return target==root.val;
-            }
-           
-        
-        boolean c=check(root.left,target-root.val);
-        boolean c2=check(root.right,target-root.val);
+        boolean left=sum(root.left,target,sum);
+        boolean right=sum(root.right,target,sum);
 
-        return c || c2;
-        
+        return left || right;
 
-
-
-        
     }
 }
