@@ -23,20 +23,59 @@ class Node {
 
 class Solution {
     public Node connect(Node root) {
-        if(root == null) return null;
+        
+        if(root==null) return root;
         Node leftt=root;
-
         while(leftt.left!=null){
             Node curr=leftt;
             while(curr!=null){
-                curr.left.next=curr.right;
-                if(curr.next!=null){
-                    curr.right.next=curr.next.left;
-                }
-                curr=curr.next;
+            curr.left.next=curr.right;
+            if(curr.next!=null){
+                curr.right.next=curr.next.left;
+            }
+            curr=curr.next;
             }
             leftt=leftt.left;
         }
         return root;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        // if(root == null) return null;
+        // Node leftt=root;
+
+        // while(leftt.left!=null){
+        //     Node curr=leftt;
+        //     while(curr!=null){
+        //         curr.left.next=curr.right;
+        //         if(curr.next!=null){
+        //             curr.right.next=curr.next.left;
+        //         }
+        //         curr=curr.next;
+        //     }
+        //     leftt=leftt.left;
+        // }
+        // return root;
     }
 }
