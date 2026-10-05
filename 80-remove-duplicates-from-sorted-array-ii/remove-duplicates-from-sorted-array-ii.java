@@ -1,32 +1,28 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
+        int count=1;
         int i=0;
-        int co=1;
-        int ans=1;
-        int j=0;
+        int j=1;
         while(i+1<nums.length){
-            if( nums[i]==nums[i+1]){
-                if(co<2){
+            if(i+1<nums.length && nums[i]==nums[i+1]){
+                count++;
+                if(count<=2){
+                    nums[j]=nums[i];
                     j++;
-                nums[j]=nums[i+1];
-                co++;
-                ans++;
-
+                    i++;
                 }
-                i++;
-                
+                else{
+                    i++;
+                }
             }
-            
-            else {
-                System.out.println(j+" "+i);
-                j++;
-                
-                nums[j]=nums[i+1];
-                co=1;
-                ans++;
+            else if(i+1<nums.length && nums[i]!=nums[i+1]){
+                count=1;
+                nums[j++]=nums[i+1];
                 i++;
+
             }
         }
-        return ans;
+        
+        return j;
     }
 }
