@@ -21,10 +21,12 @@ class Solution {
         // int ans=0;
         List<Integer> ls2=new ArrayList<>();
         while(!q.isEmpty()){
-        List<Integer> ls=new ArrayList<>();
+        // List<Integer> ls=new ArrayList<>();
             int a=q.size();
+            int j=Integer.MIN_VALUE;
             for(int i=0;i<a;i++){
                 TreeNode d=q.poll();
+                j=Math.max(j,d.val);
                 if(d.left!=null){
                     q.add(d.left);
                 }
@@ -33,12 +35,9 @@ class Solution {
                     q.add(d.right);
                 }
 
-                ls.add(d.val);
+                // ls.add(d.val);
             }
-            int j=Integer.MIN_VALUE;
-            for(int i=0;i<ls.size();i++){
-                j=Math.max(ls.get(i),j);
-            }
+            
             
             ls2.add(j);
         }
